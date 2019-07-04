@@ -1,0 +1,16 @@
+spec:
+  template:
+    spec:
+      containers:
+        - resources:
+            limits:
+              cpu: 500m
+              memory: 500Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+          env:
+            - name: APP_CONFIGMAP_NAME
+              value: project-service
+            - name: APP_CONFIGMAP_KEY
+              value: app-config.yml

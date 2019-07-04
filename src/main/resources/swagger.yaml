@@ -1,0 +1,114 @@
+tags:
+  -
+    name: project
+paths:
+  /projects:
+    get:
+      operationId: GetProjects
+      tags:
+        - project
+      responses:
+        '200':
+          $ref: '#/responses/GetProjectsResponses'
+          x-oad-type: reference
+    x-oad-type: operation
+  '/projects/{projectId}':
+    get:
+      operationId: GetProjectById
+      tags:
+        - project
+      responses:
+        '200':
+          $ref: '#/responses/GetProjectByIdResponse'
+          x-oad-type: reference
+    parameters:
+      -
+        name: projectId
+        in: path
+        required: true
+        type: integer
+        format: int32
+        x-oad-type: parameter
+    x-oad-type: operation
+  '/projects/status/{status}':
+    get:
+      operationId: GetProjectsByStatus
+      tags:
+        - project
+      responses:
+        '200':
+          $ref: '#/responses/GetProjectsByStatus'
+          x-oad-type: reference
+    parameters:
+      -
+        name: status
+        in: path
+        required: true
+        type: string
+        x-oad-type: parameter
+    x-oad-type: operation
+responses:
+  GetProjectsResponses:
+    description: 'GetProjects Response'
+    schema:
+      x-oad-type: array
+      type: array
+      items:
+        x-oad-type: reference
+        $ref: '#/definitions/Project'
+    x-oad-type: response
+  GetProjectByIdResponse:
+    description: 'GetProjectById Response'
+    schema:
+      x-oad-type: reference
+      $ref: '#/definitions/Project'
+    x-oad-type: response
+  GetProjectsByStatus:
+    description: 'Get Projects By Status'
+    schema:
+      x-oad-type: array
+      type: array
+      items:
+        x-oad-type: reference
+        $ref: '#/definitions/Project'
+    x-oad-type: response
+definitions:
+  Project:
+    x-oad-type: object
+    type: object
+    title: 'project model'
+    properties:
+      projectId:
+        x-oad-type: string
+        type: string
+      ownerFirstName:
+        x-oad-type: string
+        type: string
+      ownerLastName:
+        x-oad-type: string
+        type: string
+      ownerEmailAddress:
+        x-oad-type: string
+        type: string
+      projectTitle:
+        x-oad-type: string
+        type: string
+      projectDescription:
+        x-oad-type: string
+        type: string
+      status:
+        x-oad-type: string
+        type: string
+        enum:
+          - open
+          - completed
+          - in_progress
+          - cancelled
+info:
+  title: ProjectAPI
+  version: 1.0.0
+host: '127.0.0.1:8082'
+basePath: /
+schemes:
+  - http
+swagger: '2.0'

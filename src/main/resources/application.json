@@ -1,0 +1,7 @@
+{
+	"http.port": 8081,
+	"connection_string": "mongodb://127.0.0.1:27017",
+	"db_name": "projectdb",
+	"username": "mongo",
+	"password": "mongo"
+}
