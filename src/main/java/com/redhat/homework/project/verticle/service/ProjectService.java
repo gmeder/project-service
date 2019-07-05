@@ -30,6 +30,6 @@ public interface ProjectService {
 
     void getProjectsByStatus(String status, Handler<AsyncResult<List<Project>>> resulthandler);
 
-    void addProduct(Project product, Handler<AsyncResult<String>> resulthandler);
+    void addProject(Project product, Handler<AsyncResult<String>> resulthandler);
 
 }

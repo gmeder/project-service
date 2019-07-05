@@ -70,7 +70,7 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public void addProduct(Project product, Handler<AsyncResult<String>> resulthandler) {
+	public void addProject(Project product, Handler<AsyncResult<String>> resulthandler) {
 		client.save("projects", product.toJson(), resulthandler);
 	}
 

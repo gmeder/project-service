@@ -20,14 +20,14 @@ db.projects.insert({
 	"projectId" : "22222",
 	"ownerFirstName" : "Penny",
 	"ownerLastName" : "Wise",
-	"ownerEmailAddress" : "pzise@example.com",
-	"projectTitle":"Secret Project",
-	"projectDescription":"--Secret--",
+	"ownerEmailAddress" : "pennywise@it.com",
+	"projectTitle":"Clown Party",
+	"projectDescription":"",
 	"status":"cancelled"
 });
 db.projects.insert({
 	"projectId" : "33333",
-	"ownerFirstName" : "Neo",
+	"ownerFirstName" : "Thomas",
 	"ownerLastName" : "Anderson",
 	"ownerEmailAddress" : "neo@matrix.io",
 	"projectTitle":"Matrix",

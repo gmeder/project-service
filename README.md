@@ -1,10 +1,8 @@
 # Run project locally
 
-Go to mongo folder
+## Build mongo container
 
     $ cd mongodb
-
- Create mongo container
 
     $ docker run --name mongodb-project \
     -e MONGO_INITDB_ROOT_USERNAME=mongo \
@@ -13,28 +11,28 @@ Go to mongo folder
     --mount type=bind,source="$(pwd)"/mongo-init.js,target=/docker-entrypoint-initdb.d/db-init.js \
     -p 27017:27017 -d mongo
     
- Launch project with maven (root folder)
+ ## Run project with maven (root folder)
  
 	$ mvn vertx:run
 	
-# Test locally
+# Test locally with curl
 
 getProducts
 
-	$ curl http://localhost:8080/projects
+	$ curl http://localhost:8081/projects
 	
 getProductById
 
-	$ curl http://localhost:8080/projects/11111
+	$ curl http://localhost:8081/projects/11111
 
 getProductsByStatus
 
-	$ curl http://localhost:8080/projects/status/open
-	$ curl http://localhost:8080/projects/status/cancelled
+	$ curl http://localhost:8081/projects/status/open
+	$ curl http://localhost:8081/projects/status/cancelled
 	
 # Run project on Openshift
 
-  Create Mongo database
+## Build mongodb database
 
 	$ oc new-app --name mongodb-project-service \
 	-e MONGO_INITDB_ROOT_USERNAME=mongo \
@@ -43,13 +41,13 @@ getProductsByStatus
 	https://github.com/gmeder/mongodb-projects.git \
 	--strategy=docker
 	
-Create ConfigMap
+## Create ConfigMap
 
 	$ cd project-service
 	$ oc create configmap project-service --from-file=etc/app-config.yml
 	$ oc policy add-role-to-user view -z default
 	
-Deploy project
+## Deploy project
 
 	$ cd project-service
 	$ mvn clean fabric8:deploy -Popenshift -DskipTests

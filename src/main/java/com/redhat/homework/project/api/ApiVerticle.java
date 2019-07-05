@@ -95,7 +95,7 @@ public class ApiVerticle extends AbstractVerticle {
 
 	private void addProject(RoutingContext rc) {
 		JsonObject json = rc.getBodyAsJson();
-		projectService.addProduct(new Project(json), ar -> {
+		projectService.addProject(new Project(json), ar -> {
 			if (ar.succeeded()) {
 				rc.response().setStatusCode(201).end();
 			} else {
