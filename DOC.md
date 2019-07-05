@@ -26,7 +26,7 @@ https://github.com/gmeder/mongodb-projects.git
 
 ## Run service
 
-How to run an test service is described in README (Openshift and local)
+How to run and test the service is described in README (Openshift and local)
 
 ## Service info
 
