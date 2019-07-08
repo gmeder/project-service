@@ -17,6 +17,7 @@ See [docs](DOC.md)
     
  ## Run project with maven (root folder)
  
+	$ cd project-service 
 	$ mvn vertx:run
 	
 # Test locally with curl
