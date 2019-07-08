@@ -10,7 +10,12 @@ spec:
               cpu: 100m
               memory: 200Mi
           env:
-            - name: APP_CONFIGMAP_NAME
-              value: project-service
-            - name: APP_CONFIGMAP_KEY
-              value: app-config.yml
+            - name: DEPLOYMENT_PATH
+              value: /deployments/config/app-config.yml
+          volumeMounts:
+            - name: config
+              mountPath: /deployments/config/
+      volumes:
+        - configMap:
+            name: project-service
+          name: config

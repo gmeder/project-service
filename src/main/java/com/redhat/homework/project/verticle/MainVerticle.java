@@ -25,13 +25,20 @@ public class MainVerticle extends AbstractVerticle {
             .setConfig(new JsonObject()
                 .put("name", System.getenv("APP_CONFIGMAP_NAME"))
                 .put("key", System.getenv("APP_CONFIGMAP_KEY")));
+        
+        /*
+         * Workaround in order not to need special permission to read configmap 
+         * from cluster.
+         */
+        ConfigStoreOptions fileStore = new ConfigStoreOptions()
+        		  .setType("file")
+        		  .setFormat("yaml")
+        		  .setConfig(new JsonObject().put("path", System.getenv("DEPLOYMENT_PATH")));
 
         ConfigRetrieverOptions options = new ConfigRetrieverOptions();
         if (System.getenv("OPENSHIFT_BUILD_NAMESPACE") != null) {
-            //we're running in Kubernetes
-            options.addStore(appStore);
+            options.addStore(fileStore);
         } else {
-            //default to json based config
             jsonConfigStore.setConfig(config());
             options.addStore(jsonConfigStore);
         }

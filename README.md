@@ -45,7 +45,6 @@ getProductsByStatus
 
 	$ cd project-service
 	$ oc create configmap project-service --from-file=etc/app-config.yml
-	$ oc policy add-role-to-user view -z default
 	
 ## Deploy project
 
