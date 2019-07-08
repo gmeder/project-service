@@ -27,7 +27,7 @@ public class MainVerticle extends AbstractVerticle {
                 .put("key", System.getenv("APP_CONFIGMAP_KEY")));
 
         ConfigRetrieverOptions options = new ConfigRetrieverOptions();
-        if (System.getenv("KUBERNETES_NAMESPACE") != null) {
+        if (System.getenv("OPENSHIFT_BUILD_NAMESPACE") != null) {
             //we're running in Kubernetes
             options.addStore(appStore);
         } else {
