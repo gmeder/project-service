@@ -55,5 +55,13 @@ getProductsByStatus
 
 	$ cd project-service
 	$ mvn clean fabric8:deploy -Popenshift -DskipTests
+
+# Test on Openshift (Shared Cluster 3.11)
+
+	$ curl http://project.assignment-gmeder.apps.na311.openshift.opentlc.com/projects
+	$ curl http://project.assignment-gmeder.apps.na311.openshift.opentlc.com/projects/11111
+	$ curl http://project.assignment-gmeder.apps.na311.openshift.opentlc.com/projects/status/open
+
+
 	
 

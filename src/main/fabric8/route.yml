@@ -1,0 +1,7 @@
+spec:
+  host: project.assignment-gmeder.apps.na311.openshift.opentlc.com
+  port:
+    targetPort: 8081
+  to:
+    kind: Service
+    name: project-service

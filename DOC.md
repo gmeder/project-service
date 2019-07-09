@@ -32,4 +32,4 @@ How to run and test the service is described in README (Openshift and local)
 
 - Service is running on port 8081
 - Service connect to mongodb *localhost* on port *27017* with creds *mongo/mongo* and database *projectdb*
-- The project has no route defined for Openshift because in the arquitectura it is not supposed to be accessed directly from outside the cluster but alway using the API Gateway
+- The project has a route http://project.assignment-gmeder.apps.na311.openshift.opentlc.com/
